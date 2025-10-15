@@ -6,13 +6,14 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 21:09:50 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/10/13 18:03:36 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/10/15 21:46:31 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprinftf.h"
+#include "libftprintf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }
