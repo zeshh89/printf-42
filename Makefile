@@ -18,6 +18,9 @@ SRC_FILES   = ft_itoa.c \
 			  ft_putstr_fd.c \
 			  ft_putnbr_pf.c \
 			  ft_printf.c \
+			  ft_puthex_pf.c \
+			  ft_putptr_pf.c \
+
 
 OBJS         = $(SRC_FILES:.c=.o)
 INC         = libftprintf.h
