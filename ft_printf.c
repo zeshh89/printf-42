@@ -16,15 +16,20 @@ static int	type_check(char const c, va_list args)
 {
 	if ( c == '%')
 		return (ft_putchar_fd(c, 1));
-	else if ( c == 'i')
+	else if ( c == 'i'|| c == 'd')
 		return (ft_putnbr_pf(va_arg(args, int)));
 	else if ( c == 's' )
 		return (ft_putstr_fd(va_arg(args, char*), 1));
 	else if ( c == 'c')
 		return (ft_putchar_fd((char)va_arg(args, int), 1));
-//	else if (c == 'p')
-//	else if (c == 'x' || c == 'X')
-//	else if (c == 'u' || c == 'd')
+	else if (c == 'p')
+		return (ft_putptr_pf((unsigned long)va_arg(long)));
+	else if (c == 'x')
+		return (ft_puthex_pf((unsigned long)va_arg(long), 0));
+	else if (c == 'X')
+		return (ft_puthex_pf((unsigned long)va_arg(long), 1));
+	else if (c == 'u')
+		
 	return (0);
 }
 
