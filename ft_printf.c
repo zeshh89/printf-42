@@ -14,6 +14,8 @@
 
 static int	type_check(char const c, va_list args)
 {
+	void	*ptr;
+
 	if ( c == '%')
 		return (ft_putchar_fd(c, 1));
 	else if ( c == 'i'|| c == 'd')
@@ -23,13 +25,16 @@ static int	type_check(char const c, va_list args)
 	else if ( c == 'c')
 		return (ft_putchar_fd((char)va_arg(args, int), 1));
 	else if (c == 'p')
-		return (ft_putptr_pf((unsigned long)va_arg(long)));
+	{
+		ptr = (va_arg(args, void *));
+		return (ft_putptr_pf((unsigned long)ptr));
+	}
 	else if (c == 'x')
-		return (ft_puthex_pf((unsigned long)va_arg(long), 0));
+		return (ft_puthex_pf(va_arg(args, unsigned int), 0));
 	else if (c == 'X')
-		return (ft_puthex_pf((unsigned long)va_arg(long), 1));
+		return (ft_puthex_pf(va_arg(args, unsigned int), 1));
 	else if (c == 'u')
-		
+		return (ft_putnbr_pf((unsigned int)va_arg(args, int)));
 	return (0);
 }
 

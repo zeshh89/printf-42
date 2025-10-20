@@ -15,13 +15,15 @@
 
 int	main(void)
 {
+	int	hex = 875312875;
 	int	num = 12345;
 	char c = 'e';
 	char *str = "lololol";
 	int letras;
+	void *ptr = &hex;
 
-	letras = ft_printf("numero %i char %c str %s signo %%\n", num, c, str);
-	printf("numero %i char %c str %s signo %% \n", num, c, str);
+	letras = ft_printf("numero %i char %c str %s signo %% unsigned %u hexmin %x hex may %X  puntero %p y base decimal %d \n", num, c, str, num, hex, hex, ptr, num);
+	printf("numero %i char %c str %s signo %% unsigned %u hexmin %x hex may %X  puntero %p y base decimal %d \n", num, c, str, num, hex, hex, ptr, num);
 	printf("impresos %i caracteres", letras);
 	return (0);
 }

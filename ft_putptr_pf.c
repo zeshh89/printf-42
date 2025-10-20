@@ -1,16 +1,27 @@
 
 #include "libftprintf.h"
 
-int ft_putptr_pf(void *ptr)
+static int	ft_putptr_rec(unsigned long n)
 {
-	unsigned long	ad;
+	int	count;
+	char	*str;
+
+	count = 0;
+	str = "0123456789abcdef";
+	if ( n >= 16)
+		count += ft_putptr_rec(n / 16);
+	count += ft_putchar_fd(str[n % 16], 1);
+	return (count);
+}
+
+int	ft_putptr_pf(unsigned long n)
+{
 	int		count;
 
 	count = 0;
-	if (!ptr)
-		return (0);
-	ad = (unsigned long)ptr;
+	if (n == 0)
+		return (ft_putstr_fd("0x0", 1));
 	count += ft_putstr_fd("0x", 1);
-	count += ft_puthex_pf(ad, 0);
+	count += ft_putptr_rec(n);
 	return (count);
 }

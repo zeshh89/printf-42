@@ -1,7 +1,7 @@
 
 #include "libftprintf.h"
 
-int     ft_puthex_pf(unsigned long n, int uppercase)
+int     ft_puthex_pf(unsigned int n, int uppercase)
 {
         char    *base;
         int     count;

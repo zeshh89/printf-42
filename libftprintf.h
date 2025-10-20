@@ -23,7 +23,7 @@ int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_putnbr_pf(int n);
 int		ft_printf(char const *str, ...);
-int		ft_puthex_pf(unsigned long n,int uppercase);
-int		ft_putptr_pf(void *ptr);
+int		ft_puthex_pf(unsigned int n,int uppercase);
+int		ft_putptr_pf(unsigned long ptr);
 
 #endif
