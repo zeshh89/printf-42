@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr_pf.c                                     :+:      :+:    :+:   */
+/*   ft_putunbr_pf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 17:46:10 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/10/21 20:57:28 by jose-an2         ###   ########.fr       */
+/*   Created: 2025/10/21 20:33:12 by jose-an2          #+#    #+#             */
+/*   Updated: 2025/10/21 20:40:41 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putptr_rec(unsigned long n)
+int ft_putunbr_pf(unsigned int n)
 {
-	int		count;
-	char	*str;
+	char *str;
+	int tmp;
 
-	count = 0;
-	str = "0123456789abcdef";
-	if (n >= 16)
-		count += ft_putptr_rec(n / 16);
-	count += ft_putchar_fd(str[n % 16], 1);
-	return (count);
-}
-
-int	ft_putptr_pf(unsigned long n)
-{
-	int		count;
-
-	count = 0;
-	if (n == 0)
-		return (ft_putstr_fd("(nil)", 1));
-	count += ft_putstr_fd("0x", 1);
-	count += ft_putptr_rec(n);
-	return (count);
+	str = ft_utoa(n);
+	if (!str)
+		return (-1);
+	tmp = ft_putstr_fd(str, 1);
+	free(str);
+	if (tmp == -1)
+		return (-1);
+	return (tmp);
 }
