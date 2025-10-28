@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:25:37 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/10/21 20:41:51 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/10/27 23:20:27 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,33 +35,52 @@ static int	type_check(char const c, va_list args)
 		return (ft_puthex_pf(va_arg(args, unsigned int), 1));
 	else if (c == 'u')
 		return (ft_putunbr_pf((va_arg(args, unsigned int))));
-	return (0);
+	return (-1);
 }
 
-int	ft_printf(char const *str, ...)
+static int	print_char(char c)
 {
-	int		i;
-	int		count;
-	va_list	args;
+	ft_putchar_fd(c, 1);
+	return (1);
+}
+
+int	format_print(const char *str, va_list args)
+{
+	int	i;
+	int	count;
+	int	tmp;
 
 	i = 0;
 	count = 0;
-	if (!str)
-		return (-1);
-	va_start(args, str);
+	tmp = 0;
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			count = count + (type_check(str[i + 1], args));
+			tmp = (type_check(str[i + 1], args));
+			if (tmp == -1)
+				return (-1);
+			count = count + tmp;
 			i = i + 2;
 		}
+		else if (str[i] == '%' && !str[i + 1])
+			return (-1);
 		else
-		{
-			ft_putchar_fd(str[i], 1);
-			i++;
-			count++;
-		}
+			count += print_char(str[i++]);
 	}
+	return (count);
+}
+
+int	ft_printf(char const *str, ...)
+{
+	int		count;
+	va_list	args;
+
+	count = 0;
+	if (!str)
+		return (-1);
+	va_start(args, str);
+	count = format_print(str, args);
+	va_end(args);
 	return (count);
 }

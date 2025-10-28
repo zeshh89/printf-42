@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 20:35:30 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/10/21 20:36:24 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/10/27 23:17:49 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ char	*ft_utoa(unsigned int n)
 
 	tmp = n;
 	len = 1;
-	while (tmp /= 10)
+	while (tmp > 9)
+	{
+		tmp = tmp / 10;
 		len++;
-
+	}
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-
 	str[len] = '\0';
 	while (len--)
 	{
@@ -36,4 +37,3 @@ char	*ft_utoa(unsigned int n)
 	}
 	return (str);
 }
-

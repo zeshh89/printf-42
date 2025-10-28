@@ -6,12 +6,12 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 17:41:54 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/10/21 20:41:08 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/10/27 23:14:14 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
