@@ -6,7 +6,7 @@
 /*   By: jose-an2 <jose-an2@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:25:37 by jose-an2          #+#    #+#             */
-/*   Updated: 2025/10/27 23:20:27 by jose-an2         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:32:26 by jose-an2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	print_char(char c)
 	return (1);
 }
 
-int	format_print(const char *str, va_list args)
+static int	format_print(const char *str, va_list args)
 {
 	int	i;
 	int	count;
